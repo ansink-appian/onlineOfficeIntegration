@@ -1,0 +1,13 @@
+<appian-plugin name="Online Office Functions" key="com.appiancorp.ps.plugins.onlineOfficeFunctions">
+<plugin-info>
+		<description>Get Online Office URL to embed office trough the WOPI protocol in Appian Native Web Component</description>
+		<vendor name="Appian Corporation" url="http://www.appian.com"></vendor>
+		<version>1.0.0</version>
+		<application-version min="19.0.0"></application-version>
+		
+		</plugin-info>
+	
+	
+	<function key="getEmbeddedOfficeURL" class="com.appiancorp.ps.plugins.onlineOfficeFunctions.OnlineOfficeFunctions"></function>
+
+	</appian-plugin>
