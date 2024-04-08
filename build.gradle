@@ -15,11 +15,11 @@ dependencies {
     compileOnly files('/Users/mark.ansink/Documents/lib/appian-plug-in-sdk.jar')
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-    implementation group: 'log4j', name: 'log4j', version: '+'
-    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '+'
-    compileOnly group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '+'
-    implementation group: 'org.json', name: 'json', version: '+'
-    implementation("commons-io:commons-io:+")
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.23.1'
+    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.+'
+    compileOnly group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.12.1'
+    implementation group: 'org.json', name: 'json', version: '20201115'
+    implementation("commons-io:commons-io:2.6")
 
 }
 

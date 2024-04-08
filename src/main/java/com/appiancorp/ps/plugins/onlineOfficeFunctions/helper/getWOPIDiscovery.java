@@ -15,15 +15,22 @@ import java.io.InputStream;
 import java.util.List;
 
 public class getWOPIDiscovery {
-    public static String getWOPIDiscovery(String wopiClient, String Extension) {
+    public static String getWOPIDiscovery(String wopiClient, String Extension, boolean readOnly) {
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet request = new HttpGet(wopiClient + "/hosting/discovery");
         HttpEntity entity = null;
         InputStream xml = null;
         String url = null;
+        String actionName = "view";
+        if (
+                readOnly
+        ) {
+            actionName = "view";
+        } else {
+            actionName = "edit";
+        }
         try (
-
                 CloseableHttpResponse response = httpClient.execute(request)) {
             entity = response.getEntity();
 
@@ -40,19 +47,15 @@ public class getWOPIDiscovery {
                     for (int a = 0; a < actions.size(); a++) {
                         Action action = actions.get(a);
                         if (
-                                action.getExt().equals(Extension)
+                                action.getExt().equals(Extension) && action.getName().equals(actionName)
                         ) {
-                            url = action.getUrlsrc();
-
+                            url = action.getUrlsrc().replaceAll("<.*?>", "") + "IsLicensedUser=1&";
                         }
-
                     }
-
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
-
         }
 
         return url;

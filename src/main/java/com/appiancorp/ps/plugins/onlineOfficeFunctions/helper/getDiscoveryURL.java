@@ -7,7 +7,7 @@ import org.apache.commons.io.FilenameUtils;
 public class getDiscoveryURL {
 
 
-    public static String getDiscoveryURL(ContentService cs, Long document, String wopiClient) {
+    public static String getDiscoveryURL(ContentService cs, Long document, String wopiClient, boolean readOnly) {
         String discoveryURL = null;
         String extension = null;
         try {
@@ -15,7 +15,7 @@ public class getDiscoveryURL {
         } catch (InvalidContentException e) {
             e.printStackTrace();
         }
-        discoveryURL = getWOPIDiscovery.getWOPIDiscovery(wopiClient, extension);
+        discoveryURL = getWOPIDiscovery.getWOPIDiscovery(wopiClient, extension, readOnly);
 
 
         return discoveryURL;
